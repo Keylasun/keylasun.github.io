@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Kesehatan</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold" href="#">HealthCare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#layanan">Fitur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#tentang">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero bg-light text-center p-5">
+        <div class="container">
+            <!-- Menambahkan Logo -->
+            <img src="image.key/Health_Care__4_-removebg-preview.png" alt="Logo HealthCare" class="img-fluid mb-4" style="max-width: 150px;">
+            <h1 class="display-4">Selamat Datang di HealthCare</h1>
+            <a href="#layanan" class="btn btn-success btn-lg">Jelajahi Layanan</a>
+        </div>
+    </section>
+    
+    <!-- Layanan Section -->
+<section id="layanan" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Layanan Kami</h2>
+        <div class="row g-4">
+            <!-- Konsultasi Dokter -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="image.key/Healthcare.png" class="card-img-top" alt="Konsultasi Dokter">
+                    <div class="card-body">
+                        <h5 class="card-title">Konsultasi Dokter</h5>
+                        <p class="card-text">Berkonsultasi langsung dengan dokter spesialis terpercaya.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Layanan Darurat -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="image.key/health care (2).png" class="card-img-top" alt="Layanan Darurat">
+                    <div class="card-body">
+                        <h5 class="card-title">Layanan Darurat</h5>
+                        <p class="card-text">Respon cepat untuk keadaan darurat kapan saja.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Pemeriksaan Kesehatan -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="image.key/health care (1).png" class="card-img-top" alt="Pemeriksaan Kesehatan">
+                    <div class="card-body">
+                        <h5 class="card-title">Pemeriksaan Kesehatan</h5>
+                        <p class="card-text">Paket pemeriksaan kesehatan lengkap untuk semua usia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Tentang Kami Section -->
+    <section id="tentang" class="bg-success text-white text-center p-5">
+        <div class="container">
+            <h2 class="mb-4">Tentang Kami</h2>
+            <p>HealthCare adalah penyedia layanan kesehatan terkemuka yang bertujuan memberikan pelayanan berkualitas untuk Anda dan keluarga. Kami percaya bahwa kesehatan adalah aset terbesar, dan kami berkomitmen untuk menjaga kesehatan Anda dengan sepenuh hati.</p>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+<section id="kontak" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Pendaftaran</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form id="contactForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="name" placeholder="Nama Anda">
+                        <div class="invalid-feedback" id="nameError">Nama harus diisi.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email Anda">
+                        <div class="invalid-feedback" id="emailError">Email harus diisi dan valid.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Pesan</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Tulis pesan Anda di sini"></textarea>
+                        <div class="invalid-feedback" id="messageError">Pesan harus diisi.</div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Kirim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Get the form and input elements
+    const form = document.getElementById('contactForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+
+    // Event listener for form submission
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Clear previous error messages
+        nameInput.classList.remove('is-invalid');
+        emailInput.classList.remove('is-invalid');
+        messageInput.classList.remove('is-invalid');
+        
+        let valid = true;
+
+        // Validate Name
+        if (nameInput.value.trim() === "") {
+            nameInput.classList.add('is-invalid');
+            valid = false;
+        }
+
+        // Validate Email
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (emailInput.value.trim() === "" || !emailRegex.test(emailInput.value)) {
+            emailInput.classList.add('is-invalid');
+            valid = false;
+        }
+
+        // Validate Message
+        if (messageInput.value.trim() === "") {
+            messageInput.classList.add('is-invalid');
+            valid = false;
+        }
+
+        // If the form is valid, you can proceed to submit the form or take other actions
+        if (valid) {
+            // For demonstration, you can show a success message
+            alert("Formulir berhasil dikirim!");
+            // In a real-world case, you would send the form data to the server here.
+            form.reset();  // Reset the form
+        }
+    });
+</script>
+
+                </div>
+                <div class="col-md-6 text-center py-3">
+                    <h5>Alamat</h5>
+                    <p>Jl. Sehat No.123, Jakarta</p>
+                    <h5>Email</h5>
+                    <p>support@healthcare.com</p>
+                    <h5>Telepon</h5>
+                    <p>+62 812 3456 7890</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-success text-white text-center py-3">
+        <p>&copy; 2024 HealthCare. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
