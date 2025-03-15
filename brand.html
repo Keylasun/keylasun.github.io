@@ -138,17 +138,6 @@
         </div>
     </section>
 
-    <script>
-        document.addEventListener("scroll", function() {
-            const elements = document.querySelectorAll(".animate");
-            elements.forEach(el => {
-                const position = el.getBoundingClientRect().top;
-                if (position < window.innerHeight - 100) {
-                    el.classList.add("show");
-                }
-            });
-        });
-    </script>
     
     <section id="contact" class="container py-4 text-center">
         <h2>Contact</h2>
