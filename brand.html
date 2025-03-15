@@ -24,6 +24,10 @@
             background: rgba(255, 255, 255, 0.1);
             color: white;
             border: none;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
         }
         .profile-img {
             width: 150px;
@@ -51,6 +55,15 @@
             text-decoration: none;
             color: white;
         }
+        .animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+        .animate.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -63,14 +76,14 @@
         </ul>
     </nav>
     
-    <header class="text-center py-5">
+    <header class="text-center py-5 animate">
         <h1>Hey, I'm <span class="highlight">[Nama Anda]</span></h1>
         <h2>Mahasiswa <span class="highlight">Teknik Informatika</span></h2>
         <p>Saya sangat tertarik dengan dunia teknologi dan desain.</p>
         <img src="profile.jpg" alt="Foto Profil" class="profile-img">
     </header>
     
-    <section id="about" class="container py-4">
+    <section id="about" class="container py-4 animate">
         <h2 class="text-center">About Me</h2>
         <div class="row g-4">
             <div class="col-md-6 text-center">
@@ -83,7 +96,7 @@
         </div>
     </section>
     
-    <section id="projects" class="container py-4">
+    <section id="projects" class="container py-4 animate">
         <h2 class="text-center">Projects</h2>
         <div class="row g-4">
             <div class="col-md-4">
@@ -116,38 +129,17 @@
         </div>
     </section>
     
-    <section id="soft-skills" class="container py-4">
-        <h2 class="text-center">Soft Skills</h2>
-        <div class="row g-4 text-center">
-            <div class="col-md-3">
-                <img src="softskill1.jpg" class="img-fluid" alt="Komunikasi">
-                <p>Komunikasi</p>
-            </div>
-            <div class="col-md-3">
-                <img src="softskill2.jpg" class="img-fluid" alt="Kerja Sama Tim">
-                <p>Kerja Sama Tim</p>
-            </div>
-            <div class="col-md-3">
-                <img src="softskill3.jpg" class="img-fluid" alt="Kreativitas">
-                <p>Kreativitas</p>
-            </div>
-            <div class="col-md-3">
-                <img src="softskill4.jpg" class="img-fluid" alt="Manajemen Waktu">
-                <p>Manajemen Waktu</p>
-            </div>
-        </div>
-    </section>
-
-    
-    <section id="contact" class="container py-4 text-center">
-        <h2>Contact</h2>
-        <p>Hubungi saya melalui email atau sosial media berikut:</p>
-        <div class="social-icons">
-            <a href="mailto:[Email Anda]" target="_blank"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/[Github Anda]" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.instagram.com/[Instagram Anda]" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-    </section>
+    <script>
+        document.addEventListener("scroll", function() {
+            const elements = document.querySelectorAll(".animate");
+            elements.forEach(el => {
+                const position = el.getBoundingClientRect().top;
+                if (position < window.innerHeight - 100) {
+                    el.classList.add("show");
+                }
+            });
+        });
+    </script>
     
     <footer class="bg-dark text-white text-center p-4 mt-4">
         &copy; 2025 Personal Portofolio - Mahasiswa Teknik Informatika
